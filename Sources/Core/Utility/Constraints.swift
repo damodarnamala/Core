@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     // MARK: - Safe anchors
 
     /// Contains view's top anchor depending to iOS version.
@@ -201,7 +201,7 @@ extension UIView {
         }
     }
 
-    public func fillSuperView() {
+    func fillSuperView() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             leftAnchor.constraint(equalTo: superview.leftAnchor).isActive = true
@@ -211,7 +211,7 @@ extension UIView {
         }
     }
 
-    public func fill(to view: UIView) {
+    func fill(to view: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
         leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true

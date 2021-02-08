@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-extension UIStoryboard {
+public extension UIStoryboard {
     static var main: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
     }
 }
 
-extension UIViewController {
+public extension UIViewController {
     static func instance<T: UIViewController>() -> T {
         let name = String(describing: self)
 

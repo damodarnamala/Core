@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     static func create(image name: String,
                        target: AnyObject,
                        action: Selector) -> UIBarButtonItem {

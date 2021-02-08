@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Queue {
+public class Queue {
     public static func main(_ after: DispatchTimeInterval = .milliseconds(0),
                             _ service: DispatchQoS = .userInteractive ,
                             _ closure: @escaping () -> Void) {

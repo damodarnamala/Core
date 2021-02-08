@@ -7,22 +7,23 @@
 
 import Foundation
 import UIKit
-protocol Reusable: class {
+
+public protocol Reusable: class {
     static var reuseIdentifier: String { get }
     static var nib: UINib? { get }
 }
 
-extension Reusable {
-    public  static var reuseIdentifier: String {
+public extension Reusable {
+    static var reuseIdentifier: String {
         return String(describing: Self.self)
     }
 
-    public  static var nib: UINib? {
+    static var nib: UINib? {
         return UINib(nibName: Self.reuseIdentifier, bundle: nil)
     }
 }
 
-extension UICollectionView {
+public extension UICollectionView {
     func registerReusableCell<T: UICollectionViewCell>(_: T.Type) where T: Reusable {
         if let nib = T.nib {
             self.register(nib, forCellWithReuseIdentifier: T.reuseIdentifier)
@@ -48,7 +49,7 @@ extension UICollectionView {
     }
 }
 
-extension UITableView {
+public extension UITableView {
     func registerReusableCell<T: UITableViewCell>(_: T.Type) where T: Reusable {
         if let nib = T.nib {
             self.register(nib, forCellReuseIdentifier: T.reuseIdentifier)

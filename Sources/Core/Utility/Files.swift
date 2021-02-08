@@ -8,7 +8,7 @@
 import Foundation
 
 open class Files  {
-    static let shared = Files()
+    static public let shared = Files()
     public func contains(with name: String) -> Bool {
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let url = NSURL(fileURLWithPath: path)
