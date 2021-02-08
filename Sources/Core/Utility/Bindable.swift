@@ -8,7 +8,8 @@
 import Foundation
 
 
-protocol Bindable: AnyObject {
-    func bind(_ object: AnyObject)
+protocol Bindable {
+    associatedtype T
+    func bind(_ object: T)
 }
 

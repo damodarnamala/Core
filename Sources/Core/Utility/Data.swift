@@ -7,9 +7,15 @@
 
 import Foundation
 
-public extension Data {
-    func decoded<T: Decodable>(using decoder: JSONDecoder = .init()) throws -> T {
-        return try decoder.decode(T.self, from: self)
+extension Encodable {
+    func encode(with encoder: JSONEncoder = JSONEncoder()) throws -> Data {
+        return try encoder.encode(self)
+    }
+}
+
+extension Decodable {
+    static func decode(with decoder: JSONDecoder = JSONDecoder(), from data: Data) throws -> Self {
+        return try decoder.decode(Self.self, from: data)
     }
 }
 
@@ -43,4 +49,15 @@ public extension KeyedDecodingContainerProtocol {
 /* Usage:
  try userDidLogin(data.decoded())
  let data = try user.encoded()
+
+ // create a new language
+ let language = Language(name: "Swift", version: "4")
+
+ // encode with one line of code
+ let data = try? language.encode()
+
+ let lang: Language? = try? Language.decode(from: data!)
+
 */
+
+
