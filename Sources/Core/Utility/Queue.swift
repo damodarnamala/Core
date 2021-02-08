@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 
@@ -16,7 +16,7 @@ public class Queue {
                                       qos: service,
                                       execute: closure)
     }
-
+    
     public static func onGlobal(_ after: DispatchTimeInterval = .milliseconds(0),
                                 _ service: DispatchQoS = .utility ,
                                 _ closure: @escaping () -> Void) {

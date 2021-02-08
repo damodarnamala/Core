@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -37,7 +37,7 @@ public extension KeyedDecodingContainerProtocol {
         return try decode(T.self,
                           forKey: key)
     }
-
+    
     func decode<T: Decodable>( forKey key: Key,
                                default defaultExpression: @autoclosure () -> T) throws -> T {
         return try decodeIfPresent(T.self,
@@ -46,18 +46,18 @@ public extension KeyedDecodingContainerProtocol {
 }
 
 
-/* Usage:
+/* Usage::
  try userDidLogin(data.decoded())
  let data = try user.encoded()
-
+ 
  // create a new language
  let language = Language(name: "Swift", version: "4")
-
+ 
  // encode with one line of code
  let data = try? language.encode()
-
+ 
  let lang: Language? = try? Language.decode(from: data!)
-
-*/
+ 
+ */
 
 

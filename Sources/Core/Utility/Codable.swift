@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -22,7 +22,7 @@ public extension KeyedDecodingContainer where Key: CodingKey {
         let int = try decode(Int.self, forKey: key)
         return int == 1
     }
-
+    
     /// Try to decode a Bool as Int then String before decoding as Bool if present.
     ///
     /// - Parameter key: Key.
@@ -54,7 +54,7 @@ public extension KeyedDecodingContainer where Key: CodingKey {
         let path = try decode(String.self, forKey: key)
         return baseUrl?.appendingPathComponent(path)
     }
-
+    
     /// Decode a URL path with appending an optional base URL (if URL present).
     ///
     /// - Parameters:
@@ -96,7 +96,7 @@ public extension UserDefaults {
         guard let data = value(forKey: key) as? Data else { return nil }
         return try? decoder.decode(type.self, from: data)
     }
-
+    
     /// Allows storing of Codable objects to UserDefaults.
     ///
     /// - Parameters:
@@ -110,46 +110,46 @@ public extension UserDefaults {
 }
 
 /*
-{
-    "id": "test",
-    "url": "test.png",
-    "is_gif": 0
-}
-struct Image: Codable {
-    let id: String
-    let url: URL?
-    let isGif: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case url
-        case is_gif
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        id = try container.decode(String.self, forKey: .id)
-
-        let baseUrl = URL(string: "your base url")!
-        url = try container.decodeURL(baseUrl: baseUrl, forKey: .url)
-        isGif = try container.decodeBoolAsIntOrString(forKey: .is_gif)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        let baseUrl = URL(string: "your base url")!
-        try container.encodeURLIfPresent(url, baseUrl: baseUrl, forKey: .url)
-        try container.encode(isGif, forKey: .is_gif)
-    }
-
-    static func save(_ image: Image) {
-        UserDefaults.standard.set(object: self, forKey: image.id)
-    }
-
-    static func image(for id: String) -> Image? {
-        return UserDefaults.standard.object(Image.self, with: id)
-    }
-}
-*/
+ {
+ "id": "test",
+ "url": "test.png",
+ "is_gif": 0
+ }
+ struct Image: Codable {
+ let id: String
+ let url: URL?
+ let isGif: Bool
+ 
+ enum CodingKeys: String, CodingKey {
+ case id
+ case url
+ case is_gif
+ }
+ 
+ init(from decoder: Decoder) throws {
+ let container = try decoder.container(keyedBy: CodingKeys.self)
+ 
+ id = try container.decode(String.self, forKey: .id)
+ 
+ let baseUrl = URL(string: "your base url")!
+ url = try container.decodeURL(baseUrl: baseUrl, forKey: .url)
+ isGif = try container.decodeBoolAsIntOrString(forKey: .is_gif)
+ }
+ 
+ func encode(to encoder: Encoder) throws {
+ var container = encoder.container(keyedBy: CodingKeys.self)
+ try container.encode(id, forKey: .id)
+ let baseUrl = URL(string: "your base url")!
+ try container.encodeURLIfPresent(url, baseUrl: baseUrl, forKey: .url)
+ try container.encode(isGif, forKey: .is_gif)
+ }
+ 
+ static func save(_ image: Image) {
+ UserDefaults.standard.set(object: self, forKey: image.id)
+ }
+ 
+ static func image(for id: String) -> Image? {
+ return UserDefaults.standard.object(Image.self, with: id)
+ }
+ }
+ */

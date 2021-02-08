@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -19,12 +19,12 @@ public extension Dictionary {
 }
 
 
-/* usage
-var dictionary: [String: Int] = [:]
-do {
-    let value = try dictionary.tryValue(forKey: "foo")
-    print(value) // unreachable
-} catch {
-    print(error) //=> DictionaryTryValueError
-}
-*/
+/* Usage:
+ var dictionary: [String: Int] = [:]
+ do {
+ let value = try dictionary.tryValue(forKey: "foo")
+ print(value) // unreachable
+ } catch {
+ print(error) //=> DictionaryTryValueError
+ }
+ */

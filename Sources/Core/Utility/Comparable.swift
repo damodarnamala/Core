@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -14,7 +14,6 @@ public extension Comparable {
         } else if (self < low) {
             return low
         }
-
         return self
     }
 }

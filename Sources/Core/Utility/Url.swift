@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -31,9 +31,9 @@ extension URL: ExpressibleByStringLiteral {
 }
 /*
 
-usage:
-if let url = "https://example.com".url {
-}
+ Usage::
+ if let url = "https://example.com".url {
+ }
 
-let url: URL = "https://example.com"
-*/
+ let url: URL = "https://example.com"
+ */

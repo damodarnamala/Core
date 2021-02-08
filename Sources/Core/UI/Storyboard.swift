@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -17,11 +17,11 @@ public extension UIStoryboard {
 public extension UIViewController {
     static func instance<T: UIViewController>() -> T {
         let name = String(describing: self)
-
+        
         guard let controller = UIStoryboard.main.instantiateViewController(withIdentifier: name) as? T else {
             fatalError("ViewController '\(name)' is not of the expected class \(T.self).")
         }
         return controller
-
+        
     }
 }

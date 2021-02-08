@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -16,7 +16,7 @@ public extension ClassNameProtocol {
     static var className: String {
         return String(describing: self)
     }
-
+    
     var className: String {
         return type(of: self).className
     }
@@ -24,7 +24,7 @@ public extension ClassNameProtocol {
 
 extension NSObject: ClassNameProtocol {}
 /*
- usage:
+ Usage::
  UIView.className => "UIView"
  UILabel().className => "UILabel"
-*/
+ */

@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -16,14 +16,14 @@ public func ???<T>(lhs: T?,
 }
 
 /*
-let value: String? = nil
+ let value: String? = nil
 
-struct OptionalError: Error {}
+ struct OptionalError: Error {}
 
-do {
-    let v = try value ??? OptionalError()
-    print(v) // unreachable
-} catch {
-    print(error) //=> OptionalError
-}
-**/
+ do {
+ let v = try value ??? OptionalError()
+ print(v) // unreachable
+ } catch {
+ print(error) //=> OptionalError
+ }
+ **/

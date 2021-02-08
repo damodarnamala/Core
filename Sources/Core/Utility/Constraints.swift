@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIView {
     // MARK: - Safe anchors
-
+    
     /// Contains view's top anchor depending to iOS version.
     var safeTopAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
@@ -19,7 +19,7 @@ public extension UIView {
             return topAnchor
         }
     }
-
+    
     /// Contains view's leading anchor depending to iOS version.
     var safeLeadingAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
@@ -28,7 +28,7 @@ public extension UIView {
             return leadingAnchor
         }
     }
-
+    
     /// Contains view's trailing anchor depending to iOS version.
     var safeTrailingAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
@@ -37,7 +37,7 @@ public extension UIView {
             return trailingAnchor
         }
     }
-
+    
     /// Contains view's bottom anchor depending to iOS version.
     var safeBottomAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
@@ -46,9 +46,9 @@ public extension UIView {
             return bottomAnchor
         }
     }
-
+    
     // MARK: - Common constraints
-
+    
     /// Adds a constraint (top) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -59,7 +59,7 @@ public extension UIView {
         topAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (bottom) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -70,7 +70,7 @@ public extension UIView {
         bottomAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (leading) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -81,7 +81,7 @@ public extension UIView {
         leadingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (trailing) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -92,9 +92,9 @@ public extension UIView {
         trailingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
     }
-
+    
     // MARK: - Height constraints
-
+    
     /// Adds a height constraint with constant value.
     /// - Parameter constant: The constant offset for the constraint.
     @discardableResult
@@ -103,7 +103,7 @@ public extension UIView {
         heightAnchor.constraint(equalToConstant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (height) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -115,9 +115,9 @@ public extension UIView {
         heightAnchor.constraint(equalTo: anchor, multiplier: multiplier, constant: constant).isActive = true
         return self
     }
-
+    
     // MARK: - Width constraints
-
+    
     /// Adds a width constraint with constant value.
     /// - Parameter constant: The constant offset for the constraint.
     @discardableResult
@@ -126,7 +126,7 @@ public extension UIView {
         widthAnchor.constraint(equalToConstant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (width) that defines one item’s attribute as greater than or equal to another item’s attribute plus a constant offset.
     /// - Parameter constant: The constant offset for the constraint.
     @discardableResult
@@ -135,7 +135,7 @@ public extension UIView {
         widthAnchor.constraint(greaterThanOrEqualToConstant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (width) that defines one item’s attribute as less than or equal to another item’s attribute plus a constant offset.
     /// - Parameter constant: The constant offset for the constraint.
     @discardableResult
@@ -144,7 +144,7 @@ public extension UIView {
         widthAnchor.constraint(lessThanOrEqualToConstant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (width) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -155,9 +155,9 @@ public extension UIView {
         widthAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
     }
-
+    
     // MARK: - Center constraints
-
+    
     /// Adds a constraint (center X) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -168,7 +168,7 @@ public extension UIView {
         centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
     }
-
+    
     /// Adds a constraint (center Y) that defines one item’s attribute as equal to another item’s attribute plus a constant offset.
     /// - Parameters:
     ///   - anchor: A layout anchor.
@@ -179,9 +179,9 @@ public extension UIView {
         centerYAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
     }
-
+    
     // MARK: - Helpers
-
+    
     /// Adds four constraints (top, bottom, leading, trailing) to the current view and another view.
     /// - Parameters:
     ///   - anotherView: The view for the right side of the constraint.
@@ -200,7 +200,7 @@ public extension UIView {
                 .bottomAnchor(equalTo: anotherView.bottomAnchor, constant: -insets.bottom)
         }
     }
-
+    
     func fillSuperView() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
@@ -210,7 +210,7 @@ public extension UIView {
             bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
         }
     }
-
+    
     func fill(to view: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
         leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -218,6 +218,6 @@ public extension UIView {
         topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
-
-
+    
+    
 }

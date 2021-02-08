@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -40,7 +40,7 @@ public extension Collection {
 }
 
 /*
- Usage:
+ Usage::
  let array = ["foo", "bar"]
  array.remove(element: "foo")
  array //=> ["bar"]

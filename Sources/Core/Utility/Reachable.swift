@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 // The MIT License (MIT)
@@ -34,7 +34,7 @@ let reachabilityStatusChangedNotification = "reachabilityStatusChangedNotificati
 enum ReachabilityType: CustomStringConvertible {
     case wwan
     case wiFi
-
+    
     var description: String {
         switch self {
         case .wwan: return "WWAN"
@@ -47,7 +47,7 @@ enum ReachabilityStatus: CustomStringConvertible {
     case offline
     case online(ReachabilityType)
     case unknown
-
+    
     var description: String {
         switch self {
         case .offline: return "Offline"
@@ -62,7 +62,7 @@ public final class Reach {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
-
+        
         guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
             $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
                 SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
@@ -70,36 +70,36 @@ public final class Reach {
         }) else {
             return .unknown
         }
-
+        
         var flags: SCNetworkReachabilityFlags = []
         if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
             return .unknown
         }
-
+        
         return ReachabilityStatus(reachabilityFlags: flags)
     }
-
+    
     func monitorReachabilityChanges() {
         let host = "google.com"
         var context = SCNetworkReachabilityContext(version: 0, info: nil, retain: nil, release: nil, copyDescription: nil)
         let reachability = SCNetworkReachabilityCreateWithName(nil, host)!
-
+        
         SCNetworkReachabilitySetCallback(reachability, { (_, flags, _) in
             let status = ReachabilityStatus(reachabilityFlags: flags)
-
+            
             NotificationCenter.default.post(name: Notification.Name(rawValue: reachabilityStatusChangedNotification),
                                             object: nil,
                                             userInfo: ["Status": status.description])
-
+            
         }, &context)
-
+        
         SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetMain(), CFRunLoopMode.commonModes.rawValue)
     }
-
+    
     func isNetworkReachable() -> Bool {
-
+        
         let status = connectionStatus()
-
+        
         switch status {
         case .unknown, .offline:
             return false
@@ -116,7 +116,7 @@ extension ReachabilityStatus {
         let connectionRequired = flags.contains(.connectionRequired)
         let isReachable = flags.contains(.reachable)
         let isWWAN = flags.contains(.isWWAN)
-
+        
         if !connectionRequired && isReachable {
             if isWWAN {
                 self = .online(.wwan)
@@ -128,3 +128,7 @@ extension ReachabilityStatus {
         }
     }
 }
+
+/*  Usage:
+if Reach().isNetworkReachable() {}
+*/

@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Damodar, Namala (623-Extern) on 08/02/21.
+//  Created by Damodar, Namala
 //
 
 import Foundation
@@ -30,8 +30,8 @@ extension NSObject: Appliable {}
 extension NSObject: Runnable {}
 
 /*
-let view = UIView().apply {
-    $0.backgroundColor = .red
-    $0.frame = .init(x: 0, y: 0, width: 200, height: 200)
-}
-*/
+ let view = UIView().apply {
+ $0.backgroundColor = .red
+ $0.frame = .init(x: 0, y: 0, width: 200, height: 200)
+ }
+ */
