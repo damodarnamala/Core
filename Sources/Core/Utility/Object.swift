@@ -28,3 +28,4 @@ extension NSObject: ClassNameProtocol {}
  UIView.className => "UIView"
  UILabel().className => "UILabel"
  */
+
