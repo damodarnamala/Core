@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum AnyError: Error {  }
-typealias Handler<Response> = (Result<Response, AnyError>) -> Void
+public enum AnyError: Error {  }
+public typealias Handler<Response> = (Result<Response, AnyError>) -> Void
 
 /* Usage::
  struct Post {  }
